@@ -17,7 +17,10 @@ sha256sums=('aeb74e10aa11ed364e1bcc635a81a523119093e63befd2f231f8b0705b15bf35' '
 prepare() {
   # user is supposed to maintain config.h him/herself
   cp $srcdir/config.h $srcdir/$pkgname-$pkgver/config.h
-  git apply ../st-externalpipe-0.8.1.diff --directory=$srcdir/$pkgname-$pkgver
+  cd $pkgname-$pkgver
+  for patch in $srcdir/../*.diff; do
+    patch --forward --strip=1 --input="$patch"
+  done
 }
 
 build() {
