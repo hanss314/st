@@ -83,62 +83,64 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
-	/* 8 normal colors */
-    "#073642", 
-    "#dc322f",
-    "#859900",
-    "#c4a000",
-    "#268bd2",
-    "#75507b",
-    "#06989a",
-    "#d3d7cf",
-    
-	/* 8 bright colors */
-    "#555753",
-    "#cb4b16",
-    "#586e75",
-    "#fce94f",
-    "#6c71c4",
-    "#ad7fa8",
-    "#34e2e2",
-    "#eeeeec", 
-    
 
-	/*"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
-
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",*/
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#f3f4f5",
-	"#2f343f",
-};
+#include "/home/hanss/.cache/wal/colors-wal-st.h"
+//static const char *colorname[] = {
+//	/* 8 normal colors */
+//    "#073642", 
+//    "#dc322f",
+//    "#859900",
+//    "#c4a000",
+//    "#268bd2",
+//    "#75507b",
+//    "#06989a",
+//    "#d3d7cf",
+//    
+//	/* 8 bright colors */
+//    "#555753",
+//    "#cb4b16",
+//    "#586e75",
+//    "#fce94f",
+//    "#6c71c4",
+//    "#ad7fa8",
+//    "#34e2e2",
+//    "#eeeeec", 
+//    
+//
+//	/*"black",
+//	"red3",
+//	"green3",
+//	"yellow3",
+//	"blue2",
+//	"magenta3",
+//	"cyan3",
+//	"gray90",
+//
+//	"gray50",
+//	"red",
+//	"green",
+//	"yellow",
+//	"#5c5cff",
+//	"magenta",
+//	"cyan",
+//	"white",*/
+//
+//	[255] = 0,
+//
+//	/* more colors can be added after 255 to use with DefaultXX */
+//	"#f3f4f5",
+//	"#2f343f",
+//};
 
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 256;
-unsigned int defaultbg = 257;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+//unsigned int defaultfg = 256;
+//unsigned int defaultbg = 257;
+//static unsigned int defaultcs = 256;
+//static unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -193,8 +195,8 @@ static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NUL
 
 MouseKey mkeys[] = {
     /* button               mask            function        argument */
-    { Button4,              ShiftMask,      kscrollup,      {.i =  1} },
-    { Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+    { Button4,              ShiftMask,      kscrollup,      {.i =  3} },
+    { Button5,              ShiftMask,      kscrolldown,    {.i =  3} },
 };
 
 static Shortcut shortcuts[] = {
@@ -214,6 +216,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
 	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+    { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = 5} },
+    { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = 5} },
 };
 
 /*
