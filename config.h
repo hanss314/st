@@ -195,8 +195,8 @@ static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NUL
 
 MouseKey mkeys[] = {
     /* button               mask            function        argument */
-    { Button4,              ShiftMask,      kscrollup,      {.i =  3} },
-    { Button5,              ShiftMask,      kscrolldown,    {.i =  3} },
+    { Button4,              XK_ANY_MOD,      kscrollup,      {.i =  3} },
+    { Button5,              XK_ANY_MOD,      kscrolldown,    {.i =  3} },
 };
 
 static Shortcut shortcuts[] = {
@@ -205,9 +205,9 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
-	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
+	{ MODKEY,               XK_Up,          zoom,           {.f = +1} },
+	{ MODKEY,               XK_Down,        zoom,           {.f = -1} },
+	{ MODKEY,               XK_Home,        zoomreset,      {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,       {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,      {.i =  0} },
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
